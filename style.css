@@ -1,0 +1,121 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --dkClr: #181818;
+  --liClr: whitesmoke;
+  --accClr: #0d0d35;
+  --btnBg: #0d6efd;
+  --btnHoverBg: #0a58ca;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  position: relative; /* Ensures that child elements can be positioned absolutely relative to this */
+  width: 100%; /* Ensures it takes the full width of its parent */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#gameCanvas {
+  border: 1px solid red;
+  width: 500px; /* Set width */
+  height: 500px; /* Set height */
+  position: relative; /* Allows z-index to be applied correctly */
+  z-index: 1;
+}
+
+#gameStartDiv {
+  position: absolute; /* Positioned absolutely to overlay on the canvas */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the centering to be precise */
+  width: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  background-color: white;
+  z-index: 2; /* Ensures it appears above the canvas */
+}
+
+
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Changed to position relative */
+}
+
+#gameCanvas {
+  border: 1px solid red;
+  width: 500px; /* Set width */
+  height: 500px; /* Set height */
+  position: relative; /* Changed to relative */
+  display: flex;
+  z-index: 1;
+}
+
+.gameUI {
+  width: 100%;
+  max-width: 500px; /* Limit width for UI elements */
+  height: 100%;
+  background-color: var(--accClr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.gameUI * {
+  text-align: center;
+  margin: 5px 0; /* Adjusted margin for better spacing */
+}
+
+#gameControls {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons */
+}
+
+
+button {
+  display: inline-block;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--btnBg);
+  color: var(--liClr);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--btnHoverBg);
+}
+
+#gameEndDiv {
+  display: none;
+}
